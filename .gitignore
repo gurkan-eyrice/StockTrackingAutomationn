@@ -1,0 +1,12 @@
+# .NET ile ilgili klasörler
+bin/
+obj/
+.vs/
+
+# Visual Studio özel ayar dosyalarý
+*.user
+*.suo
+
+# appsettings dosyalarý
+appsettings.json
+appsettings.Development.json

@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete
+@model List<Unit>
+@{
+    ViewData["Title"] = "Unit Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Units</td>
+            <td>Explaining</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var unit in Model)
+        {
+            <tr>
+                <td>@unit.UnitName</td>
+                <td>@unit.Description</td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@unit.Id" class="btn btn-warning btn-sm">Edit</a>
+                </td>
+                <td>
+                    <form method="post" asp-action="Delete" asp-route-id="@unit.Id">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Unit" asp-action="Create" class="btn btn-primary">Create</a>
+

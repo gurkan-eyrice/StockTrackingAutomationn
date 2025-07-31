@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Product>
+
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<h2>Product List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Barcode Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Brand</th>
+            <th>Unit</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ProductName</td>
+                <td>@product.BarcodeName</td>
+                <td>@product.Price</td>
+                <td>@product.Category?.CategoryName</td>
+                <td>@product.Brand?.BrandName</td>
+                <td>@product.Unit?.UnitName</td>
+                <td>@product.Amount</td>
+                <td>@product.Description</td>
+                <td><a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-primary">Edit</a></td>
+                <td><a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
